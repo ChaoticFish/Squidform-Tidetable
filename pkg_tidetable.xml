@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="package" method="upgrade">
+	<name>Tide Table</name>
+	<packagename>tidetable</packagename>
+	<author>The Chaotic Fish Design Team</author>
+	<creationDate>2026-11-20</creationDate>
+	<copyright>(C) 2026 Chaotic Fish Design</copyright>
+	<license>GNU General Public License version 2 or later</license>
+	<authorUrl>https://chaoticfishdesign.com</authorUrl>
+	<packagerurl>https://chaoticfishdesign.com</packagerurl>
+	<version>1.0.0</version>
+	<description>Tide Table: events kept in SquidForm, shown by a module in six layouts. Needs SquidForm 1.0.3 or later.</description>
+	<scriptfile>script.php</scriptfile>
+	<blockChildUninstall>true</blockChildUninstall>
+	<files folder="packages">
+		<file type="plugin" id="tidetable" group="squidform">plg_squidform_tidetable.zip</file>
+		<file type="plugin" id="tidetable" group="task">plg_task_tidetable.zip</file>
+		<file type="module" id="mod_tidetable" client="site">mod_tidetable.zip</file>
+	</files>
+	<updateservers>
+		<server type="collection" name="Chaotic Fish Design">https://chaoticfishdesign.com/updates/cfd.xml</server>
+	</updateservers>
+</extension>

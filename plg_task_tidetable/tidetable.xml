@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="plugin" group="task" method="upgrade">
+	<name>plg_task_tidetable</name>
+	<author>The Chaotic Fish Design Team</author>
+	<creationDate>2026-11-20</creationDate>
+	<copyright>(C) 2026 Chaotic Fish Design</copyright>
+	<license>GNU General Public License version 2 or later</license>
+	<authorUrl>https://chaoticfishdesign.com</authorUrl>
+	<version>1.0.0</version>
+	<description>PLG_TASK_TIDETABLE_XML_DESCRIPTION</description>
+	<namespace path="src">ChaoticFish\Plugin\Task\TideTable</namespace>
+	<files>
+		<folder plugin="tidetable">services</folder>
+		<folder>src</folder>
+		<folder>forms</folder>
+	</files>
+	<languages>
+		<language tag="en-GB">language/en-GB/plg_task_tidetable.ini</language>
+		<language tag="en-GB">language/en-GB/plg_task_tidetable.sys.ini</language>
+	</languages>
+</extension>

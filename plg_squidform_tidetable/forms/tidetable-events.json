@@ -1,0 +1,187 @@
+{
+  "schema": 1,
+  "settings": {
+    "show_title": true,
+    "captcha": "pow",
+    "review": true,
+    "intro": "<p>Add an event. An admin checks events from visitors before they appear; an admin's own events go up straight away.</p>",
+    "success_message": "Thanks! Your event is saved. If it needs a check, it appears once an admin approves it."
+  },
+  "pages": [
+    {
+      "key": "p_event",
+      "title": "Event",
+      "fields": [
+        {
+          "key": "f_title",
+          "type": "text",
+          "label": "Event name",
+          "prefill": "{tidetable:f_title}",
+          "rules": {
+            "required": true,
+            "max_length": 200
+          }
+        },
+        {
+          "key": "f_date",
+          "type": "date",
+          "label": "Date",
+          "rules": {
+            "required": true
+          }
+        },
+        {
+          "key": "f_time",
+          "type": "text",
+          "label": "Time",
+          "prefill": "{tidetable:f_time}",
+          "help": "As you want it shown: \"8:30 PM\", \"1:17 – 2:26 PM\" or \"After 9:00 PM\". The first time in it sorts the day's events.",
+          "rules": {
+            "max_length": 100
+          }
+        },
+        {
+          "key": "f_category",
+          "type": "select",
+          "label": "Category",
+          "prefill": "{tidetable:f_category}",
+          "options": {
+            "form": {
+              "alias": "tidetable-categories",
+              "value": "f_key",
+              "label": "f_label",
+              "order": "f_order asc"
+            }
+          },
+          "rules": {
+            "required": true
+          },
+          "help": "Switched-off categories are listed too, so older events stay as they were; their events just don't show."
+        },
+        {
+          "key": "f_special",
+          "type": "checkbox",
+          "label": "Highlight this event",
+          "prefill": "{tidetable:f_special}",
+          "help": "A special event stands out in every layout (an eclipse, a meteor shower)."
+        },
+        {
+          "key": "f_badge",
+          "type": "text",
+          "label": "Badge",
+          "prefill": "{tidetable:f_badge}",
+          "help": "A few words on a tag, such as \"Sky Event\" or \"9 AM start\". Leave empty for none.",
+          "rules": {
+            "max_length": 60
+          }
+        },
+        {
+          "key": "f_description",
+          "type": "textarea",
+          "label": "Description",
+          "prefill": "{tidetable:f_description}",
+          "rules": {
+            "max_length": 2000
+          }
+        },
+        {
+          "key": "f_link",
+          "type": "url",
+          "label": "Link",
+          "prefill": "{tidetable:f_link}",
+          "help": "Where people find out more or register.",
+          "rules": {
+            "max_length": 500
+          }
+        },
+        {
+          "key": "f_link_label",
+          "type": "text",
+          "label": "Link text",
+          "prefill": "{tidetable:f_link_label}",
+          "help": "Says where the link goes, such as \"Details & Registration\". Empty: \"Event details\".",
+          "rules": {
+            "max_length": 120
+          }
+        },
+        {
+          "key": "f_fee_youth",
+          "type": "text",
+          "label": "Fee, youth",
+          "prefill": "{tidetable:f_fee_youth}",
+          "help": "As you want it shown: \"$13\", \"Free\". Leave empty to show nothing.",
+          "width": 6,
+          "rules": {
+            "max_length": 40
+          }
+        },
+        {
+          "key": "f_fee_adult",
+          "type": "text",
+          "label": "Fee, adult",
+          "prefill": "{tidetable:f_fee_adult}",
+          "width": 6,
+          "rules": {
+            "max_length": 40
+          }
+        },
+        {
+          "key": "f_registration",
+          "type": "textarea",
+          "label": "Registration details",
+          "prefill": "{tidetable:f_registration}",
+          "help": "Ages, registration dates and the like.",
+          "rules": {
+            "max_length": 500
+          }
+        },
+        {
+          "key": "f_contact",
+          "type": "email",
+          "label": "Your email",
+          "prefill": "{user:email}",
+          "help": "Only for questions about this event, and to tell you when it's approved. Not shown on the site.",
+          "rules": {
+            "required": true
+          }
+        }
+      ],
+      "events": {
+        "load": [],
+        "submit": [
+          {
+            "key": "a_save",
+            "type": "save_data",
+            "config": {
+              "target": "submissions"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "approval": {
+    "mode": "chain",
+    "notify": {
+      "submitter_email": "f_contact"
+    },
+    "steps": [
+      {
+        "key": "s_admin",
+        "title": "Admin check",
+        "approvers": [
+          "group:Administrator",
+          "group:Super Users"
+        ],
+        "when": {
+          "not": {
+            "user_group": [
+              "Administrator",
+              "Super Users"
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

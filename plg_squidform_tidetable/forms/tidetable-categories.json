@@ -1,0 +1,119 @@
+{
+  "schema": 1,
+  "settings": {
+    "success_message": "Category saved.",
+    "show_title": true,
+    "intro": "<p>Categories group events and colour them. Turn one off to hide it, and its events, without deleting anything.</p>",
+    "shared_fields": [
+      "f_key",
+      "f_label",
+      "f_color",
+      "f_on",
+      "f_order"
+    ]
+  },
+  "pages": [
+    {
+      "key": "p_cat",
+      "title": "Event category",
+      "fields": [
+        {
+          "key": "f_label",
+          "type": "text",
+          "label": "Name",
+          "help": "Shown on the filter buttons, such as \"Night Sky Tours\".",
+          "rules": {
+            "required": true,
+            "max_length": 80
+          }
+        },
+        {
+          "key": "f_key",
+          "type": "text",
+          "label": "Short code",
+          "help": "Lower-case letters, digits and dashes, such as \"tour\". Each category needs its own; it matches the category_key in event files.",
+          "rules": {
+            "required": true,
+            "max_length": 40,
+            "pattern": "[a-z0-9][a-z0-9-]*",
+            "pattern_message": "Use lower-case letters, digits and dashes, starting with a letter or digit."
+          }
+        },
+        {
+          "key": "f_color",
+          "type": "select",
+          "label": "Colour",
+          "options": {
+            "static": [
+              {
+                "value": "teal",
+                "label": "Teal"
+              },
+              {
+                "value": "gold",
+                "label": "Gold"
+              },
+              {
+                "value": "purple",
+                "label": "Purple"
+              },
+              {
+                "value": "orange",
+                "label": "Orange"
+              },
+              {
+                "value": "blue",
+                "label": "Blue"
+              },
+              {
+                "value": "green",
+                "label": "Green"
+              },
+              {
+                "value": "red",
+                "label": "Red"
+              },
+              {
+                "value": "gray",
+                "label": "Gray"
+              }
+            ]
+          },
+          "default": "teal",
+          "rules": {
+            "required": true
+          }
+        },
+        {
+          "key": "f_order",
+          "type": "number",
+          "label": "Order",
+          "help": "Lower numbers come first on the filter buttons.",
+          "default": "10",
+          "rules": {
+            "min": 0,
+            "max": 9999
+          }
+        },
+        {
+          "key": "f_on",
+          "type": "checkbox",
+          "label": "Show this category and its events",
+          "default": "1"
+        }
+      ],
+      "events": {
+        "load": [],
+        "submit": [
+          {
+            "key": "a_save",
+            "type": "save_data",
+            "config": {
+              "target": "submissions"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

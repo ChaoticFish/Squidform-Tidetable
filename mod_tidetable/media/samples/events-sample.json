@@ -1,0 +1,50 @@
+{
+  "categories": [
+    {
+      "catkey": "tour",
+      "label": "Night Sky Tours",
+      "color": "teal"
+    },
+    {
+      "catkey": "special",
+      "label": "Special Celestial Events",
+      "color": "gold"
+    },
+    {
+      "catkey": "scouts",
+      "label": "Scout Programs",
+      "color": "green",
+      "disabled": true
+    }
+  ],
+  "events": [
+    {
+      "event_date": "2027-01-15",
+      "event_time": "8:30 PM",
+      "category_key": "tour",
+      "title": "Night Sky Tour at the Roll-Top Observatory",
+      "link": "https://example.com/register",
+      "link_label": "Details & Registration",
+      "enrollment_fee_youth": "$13",
+      "enrollment_fee_adult": "$15",
+      "registration_info": "Ages 8 to 99. Registration 12/01/2026 – 01/14/2027.",
+      "badge": "",
+      "description": "",
+      "special": false
+    },
+    {
+      "event_date": "2027-01-20",
+      "event_time": "9:00 PM - 11:00 PM",
+      "category_key": "special",
+      "title": "Meteor Shower Watch",
+      "link": "https://example.com/info",
+      "link_label": "Event Info",
+      "enrollment_fee_youth": "",
+      "enrollment_fee_adult": "",
+      "registration_info": "",
+      "badge": "Sky Event",
+      "description": "Peak activity expected after 9 PM. Bring a blanket and look up.",
+      "special": true
+    }
+  ]
+}

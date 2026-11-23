@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="module" client="site" method="upgrade">
+	<name>mod_tidetable</name>
+	<author>The Chaotic Fish Design Team</author>
+	<creationDate>2026-11-20</creationDate>
+	<copyright>(C) 2026 Chaotic Fish Design</copyright>
+	<license>GNU General Public License version 2 or later</license>
+	<authorUrl>https://chaoticfishdesign.com</authorUrl>
+	<version>1.0.0</version>
+	<description>MOD_TIDETABLE_XML_DESCRIPTION</description>
+	<namespace path="src">ChaoticFish\Module\TideTable</namespace>
+	<files>
+		<folder module="mod_tidetable">services</folder>
+		<folder>src</folder>
+		<folder>tmpl</folder>
+	</files>
+	<media folder="media" destination="mod_tidetable">
+		<folder>css</folder>
+		<folder>js</folder>
+		<folder>samples</folder>
+	</media>
+	<languages>
+		<language tag="en-GB">language/en-GB/mod_tidetable.ini</language>
+		<language tag="en-GB">language/en-GB/mod_tidetable.sys.ini</language>
+	</languages>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field name="layout" type="modulelayout" label="MOD_TIDETABLE_LAYOUT" description="MOD_TIDETABLE_LAYOUT_DESC" class="form-select" validate="moduleLayout"/>
+				<field name="source" type="list" default="squidform" label="MOD_TIDETABLE_SOURCE" description="MOD_TIDETABLE_SOURCE_DESC">
+					<option value="squidform">MOD_TIDETABLE_SOURCE_SQUIDFORM</option>
+					<option value="file">MOD_TIDETABLE_SOURCE_FILE</option>
+				</field>
+				<field name="file_path" type="text" label="MOD_TIDETABLE_FILE" description="MOD_TIDETABLE_FILE_DESC" showon="source:file" filter="string"/>
+				<field name="file_format" type="list" default="auto" label="MOD_TIDETABLE_FORMAT" showon="source:file">
+					<option value="auto">MOD_TIDETABLE_FORMAT_AUTO</option>
+					<option value="json">JSON</option>
+					<option value="xml">XML</option>
+					<option value="csv">CSV</option>
+				</field>
+				<field name="samples_note" type="note" label="MOD_TIDETABLE_SAMPLES" description="MOD_TIDETABLE_SAMPLES_DESC" class="alert alert-info" showon="source:file"/>
+				<field name="categories" type="text" label="MOD_TIDETABLE_CATEGORIES" description="MOD_TIDETABLE_CATEGORIES_DESC" filter="string" hint="tour, special"/>
+				<field name="limit" type="number" default="0" min="0" max="1000" filter="integer" label="MOD_TIDETABLE_LIMIT" description="MOD_TIDETABLE_LIMIT_DESC"/>
+				<field name="days_ahead" type="number" default="0" min="0" max="3650" filter="integer" label="MOD_TIDETABLE_DAYS" description="MOD_TIDETABLE_DAYS_DESC"/>
+				<field name="show_filter" type="radio" default="1" layout="joomla.form.field.radio.switcher" label="MOD_TIDETABLE_FILTER" description="MOD_TIDETABLE_FILTER_DESC" filter="uint">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="heading" type="list" default="3" label="MOD_TIDETABLE_HEADING" description="MOD_TIDETABLE_HEADING_DESC" filter="uint">
+					<option value="2">h2</option>
+					<option value="3">h3</option>
+					<option value="4">h4</option>
+					<option value="5">h5</option>
+				</field>
+			</fieldset>
+			<fieldset name="adding" label="MOD_TIDETABLE_ADDING">
+				<field name="add_page" type="menuitem" label="MOD_TIDETABLE_ADD_PAGE" description="MOD_TIDETABLE_ADD_PAGE_DESC" showon="source:squidform">
+					<option value="">JNONE</option>
+				</field>
+				<field name="show_add" type="radio" default="1" layout="joomla.form.field.radio.switcher" label="MOD_TIDETABLE_SHOW_ADD" description="MOD_TIDETABLE_SHOW_ADD_DESC" showon="source:squidform" filter="uint">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="copy_groups" type="usergrouplist" multiple="true" default="7,8" layout="joomla.form.field.list-fancy-select" label="MOD_TIDETABLE_COPY_GROUPS" description="MOD_TIDETABLE_COPY_GROUPS_DESC" showon="source:squidform"/>
+			</fieldset>
+		</fields>
+	</config>
+</extension>
