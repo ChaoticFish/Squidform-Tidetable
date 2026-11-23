@@ -1,6 +1,6 @@
 # Tide Table
 
-Events kept in SquidForm, shown on your site by a module in six layouts. By Chaotic Fish Design.
+Events kept in [SquidForm](https://github.com/ChaoticFish/squidform), shown on your site by a module in six layouts. By Chaotic Fish Design. An optional SquidForm add-on ([all add-ons](https://github.com/ChaoticFish/squidform#add-ons)).
 
 - **Version:** 1.0.0 (2026-11-20)
 - **Needs:** Joomla 5 or 6, PHP 8.2 or later, **SquidForm 1.0.3 or later** (install or update SquidForm first)
