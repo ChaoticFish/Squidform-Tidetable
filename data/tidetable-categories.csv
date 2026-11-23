@@ -1,0 +1,10 @@
+﻿f_label,f_key,f_color,f_order,f_on
+Taught by AS Instructors,classes,teal,10,1
+FCPA Classes,fcpa,teal,20,1
+Intro to Astronomy,intro,teal,30,0
+Night Sky Tours,tour,teal,40,0
+Planet Adventure Night,adventure,teal,50,0
+Scout Programs,scouts,teal,60,1
+Special Events,special,gold,70,1
+Exploring the Planets,planets,teal,80,0
+Solar Viewing,sun,teal,90,0
